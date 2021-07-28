@@ -1,0 +1,18 @@
+package com.todolist.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class SlackMessageResponse {
+    @JsonProperty("ok")
+    private boolean success;
+    @JsonProperty("ts")
+    private String threadId;
+}

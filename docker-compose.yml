@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  todolist-app-container:
+    image: todolist-app
+
+    volumes:
+      - /tmp
+    ports:
+      - "8080:8080"

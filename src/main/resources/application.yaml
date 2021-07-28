@@ -1,0 +1,80 @@
+#H2DB, AWS SES
+spring:
+  datasource:
+    url: jdbc:h2:mem:TESTDB
+    driverClassName: org.h2.Driver
+    username: sa
+    password: sa
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
+  batch:
+    job:
+      enabled: false
+
+  mail:
+    host: email-smtp.us-east-1.amazonaws.com
+    password: <YOUR_SMTP_PASSWORD>
+    properties:
+      mail:
+        smtp:
+          auth: true
+          port: 587
+          starttls:
+            enable: true
+            required: true
+        transport:
+          protocol: smtp
+    username: <YOUR_SMTP_USERNAME>
+from:
+  email:
+    address: <YOUR_EMAIL_ADDRESS>
+
+#LOGGING
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: ERROR
+debug: true
+
+#SWAGGER
+app:
+  swagger:
+    basepackage: com.todolist.controllers
+    description: Spring Boot, Security, JWT, H2DB, Docker Compose
+    license:
+      contact:
+        mail:
+        name:
+        url:
+      name:
+      url:
+    title: Todo App REST Services
+    version: 1.0.0
+
+#JWT
+com:
+  sdf:
+    jwt:
+      expiration:
+        time: '86400'
+      secret: com.todolist.secret
+
+#SLACK
+slack:
+  api:
+    access:
+      token: ''
+    chat: 'https://slack.com/api/chat.postMessage'
+  channel:
+    id: 'C028L7AMRS8'
+
+
+
+
